@@ -15,6 +15,9 @@
  *  express or implied.  See the License for the specific language
  *  governing permissions and limitations under the License.
  *
+ * For more about this software visit:
+ *
+ *      https://www.github.com/dmcennis/graphlab
  *
  */
 
@@ -520,7 +523,7 @@ int main (int argc, char** argv){
 
     dc.cout() << "#vertices: " << graph.num_vertices() << " #edges:" << graph.num_edges() << std::endl;
 
-    graphlab::omni_engine<DjikstraAlgorithm> engine(dc, graph, "asynchronous", clopts);
+    graphlab::omni_engine<DjikstraAlgorithm> engine(dc, graph, "asyncronous", clopts);
 
     num_vertices = graph.num_vertices();
     graphlab::vertex_set start_set = graph.select(selectVertices);
@@ -530,13 +533,13 @@ int main (int argc, char** argv){
     const float runtime = engine.elapsed_seconds();
     dc.cout() << "Finished Djikstra engine in " << runtime << " seconds." << std::endl;
 
-    graphlab::omni_engine<ClearBooleans> engine2(dc,graph,"asynchronous",clopts);
+    graphlab::omni_engine<ClearBooleans> engine2(dc,graph,"asyncronous",clopts);
     engine2.signal_all();
     engine2.start();
     const float runtime2 = engine.elapsed_seconds();
     dc.cout() << "Finished resetting graph engine in " << runtime2 << " seconds." << std::endl;
 
-    graphlab::omni_engine<BetweenessAlgorithm> engine3(dc,graph,"asynchronous",clopts);
+    graphlab::omni_engine<BetweenessAlgorithm> engine3(dc,graph,"asyncronous",clopts);
     engine3.signal_all();
     engine3.start();
     const float runtime3 = engine.elapsed_seconds();

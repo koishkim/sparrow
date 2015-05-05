@@ -15,6 +15,9 @@
  *  express or implied.  See the License for the specific language
  *  governing permissions and limitations under the License.
  *
+ * For more about this software visit:
+ *
+ *      https://www.github.com/dmcennis/graphlab
  *
  */
 
@@ -401,7 +404,7 @@ int main(int argc, char** argv) {
   dc.cout() << "#vertices: " << graph.num_vertices() << " #edges:" << graph.num_edges() << std::endl;
 
   // Algorithm for creating the spanning trees
-  graphlab::omni_engine<DjikstraAlgorithm> engine(dc, graph, "asynchronous", clopts);
+  graphlab::omni_engine<DjikstraAlgorithm> engine(dc, graph, "asyncronous", clopts);
 
   num_vertices = graph.num_vertices();
   // create the total number of djisktra spanning trees to create at once.
